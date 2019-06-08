@@ -1,3 +1,3 @@
-#cnect
+# Cnect
 
 Project created by Damian Książek for udemy course.
