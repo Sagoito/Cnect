@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Cnect</p>
+            <div class="list-group">
+                <li class="list-group-item active">Informations about possible call</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= possibleCall.image %>">
+                <div class="caption-full">
+                    <h5 class="pull-right"> Call time start: <%= possibleCall.time %> </h5>
+                    <h4><a><%=possibleCall.name%></a></h4>
+                    <p><%= possibleCall.school %></p>
+                    <p>Average age of students: <%= possibleCall.age %> </p>
+                    <p>
+                        <em>Submitted By <a href="/profile/<%= possibleCall.author.id %>"><%= possibleCall.author.username %></a></em>
+                    </p>
+                    <% if(currentUser && possibleCall.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-warning" href="/calls/<%= possibleCall._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/calls/<%= possibleCall._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    <% }%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

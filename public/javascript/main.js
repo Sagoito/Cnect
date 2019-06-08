@@ -1,0 +1,1 @@
+ $('#timezone').text('Your local time: ' + moment.tz().local().format('HH:mm')) 

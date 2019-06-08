@@ -1,0 +1,23 @@
+<% include ./partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="<%= User.avatar %>" class="img-thumbnail">
+            <div class="list-group">
+                <li class="list-group-item active"><%= User.firstName %> <%= User.lastName %></li>
+            </div>
+        </div>
+        <div class="col-md-9 .navbar-right">
+            <div class="panel panel-default">
+                <div class=".col-md-6 panel-body"><strong> Username: </strong></div>
+                <div class=".col-md-6 panel-footer"> <%= User.username %></div>
+                <div class=".col-md-6 panel-body"><strong> Skype: </strong></div>
+                <div class=".col-md-6 panel-footer"> <%= User.skype %></div>
+                <div class=".col-md-6 panel-body"><strong> Country: </strong></div>
+                <div class=".col-md-6 panel-footer"> <%= User.country %></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Edit <%= possibleCall.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/calls/<%=possibleCall._id%>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="possibleCall[name]" value="<%= possibleCall.name %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="datetime-local" name="possibleCall[time]" value="<%= possibleCall.time %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="possibleCall[school]" value="<%= possibleCall.school %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" min="1" name="possibleCall[age]" value="<%= possibleCall.age %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="possibleCall[image]" value="<%= possibleCall.image %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Update!</button>
+                </div>
+            </form>
+            <a href="/calls/<%= possibleCall._id %>">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>
+

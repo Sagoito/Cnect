@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To Cnect<h1>
+             <p>Connect with schools all over the world!</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/calls/new">Add New Call</a>
+             </p>
+         </div>
+        <!--<div style="height: 30px; margin-top: 10px;" class="col-md-12 active">-->
+        <!--    <form class="navbar-right">-->
+        <!--        <input type="date">-->
+        <!--        <input type="date">-->
+        <!--        <button class="btn btn-primary"> Submit </button>-->
+        <!--    </form>-->
+        <!--</div>-->
+     </header>
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% possibleCalls.forEach(function(possibleCall){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= possibleCall.image %>">
+                   <div class="caption">
+                       <h4><%= possibleCall.name %></h4>
+                       <h5 id="time"><%= possibleCall.time %></h5>
+                       <script>
+                            var c = document.getElementById('time').innerHTML;
+                            c = c.replace("T", " ");
+                            var timeZone = moment.tz.guess();
+                            var rightDate = moment(c).tz(timeZone).format('YYYY-MM-DD HH:mm');
+                            document.getElementById('time').innerHTML = rightDate;
+                       </script>
+                   </div>
+                   <p>
+                       <a href="/calls/<%= possibleCall._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+<% include ../partials/footer %>
